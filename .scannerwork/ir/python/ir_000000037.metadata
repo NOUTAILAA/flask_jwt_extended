@@ -1,0 +1,6 @@
+test_auth.test_register_short_password
+false
+d8213336dffdad81fda33d358f7666fa
+==
+get_json
+post

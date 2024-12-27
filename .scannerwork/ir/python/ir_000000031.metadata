@@ -1,0 +1,5 @@
+test_auth.test_protected_route_without_token
+false
+68f141d2ca374ecc36ec133405869811
+==
+get

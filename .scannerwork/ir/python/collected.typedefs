@@ -1,0 +1,26 @@
+
+objectNoneTypeobject9datetime.tzinfo*$
+__init__datetime.tzinfo.__init__Ëdatetime.datetimedatetime.date*$
+combinedatetime.datetime.combine*$
+replacedatetime.datetime.replace*
+nowdatetime.datetime.now*,
+fromordinaldatetime.datetime.fromordinal*&
+__init__datetime.datetime.__init__*6
+utcfromtimestamp"datetime.datetime.utcfromtimestamp*0
+fromtimestampdatetime.datetime.fromtimestamp*&
+strptimedatetime.datetime.strptime*"
+utcnowdatetime.datetime.utcnow* 
+todaydatetime.datetime.today**
+
+astimezonedatetime.datetime.astimezone’datetime.date*"
+__init__datetime.date.__init__* 
+replacedatetime.date.replace*
+todaydatetime.date.today*,
+fromtimestampdatetime.date.fromtimestamp*0
+fromisocalendardatetime.date.fromisocalendarintobjectboolintobjectistrtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversibledtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversible@typing.Collectiontyping.Containertyping.Iterableobjecttyping.Containerobjecttyping.Iterableobject.typing.Reversibletyping.IterableobjectXbuiltins._StubIteratortyping.Iterable*+
+__init__builtins._StubIterator.__init__Ptyping.Mappingtyping.Collectiontyping.Containertyping.Iterableobjectgtyping.MutableMappingtyping.Mappingtyping.Collectiontyping.Containertyping.Iterableobjectmdicttyping.MutableMappingtyping.Mappingtyping.Collectiontyping.Containertyping.Iterableobjectapp.User app.User istrtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversibledtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversible@typing.Collectiontyping.Containertyping.Iterableobjecttyping.Containerobject
+objecttyping.Iterableobject.typing.Reversibletyping.IterableobjectNoneTypeobjectboolobjectintintobject#flask.scaffold.Scaffoldobject4flask.app.Flaskflask.scaffold.Scaffoldobject flask_wtf.csrf.CSRFProtect !flask_sqlalchemy.SQLAlchemy 
+object!email.message.Messageobject9email.message.MIMEPartemail.message.MessageobjectUemail.message.EmailMessageemail.message.MIMEPartemail.message.MessageobjectNoneTypeobjectistrtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversibledtyping.Sequencetyping.Collectiontyping.Containertyping.Iterableobjecttyping.Reversible@typing.Collectiontyping.Containertyping.Iterableobjecttyping.Containerobjecttyping.Iterableobject.typing.Reversibletyping.IterableobjectNoneTypeobject
+objectconfig.ConfigNoneTypeobject
+objectNoneTypeobject
+object

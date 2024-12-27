@@ -1,0 +1,6 @@
+test_auth.test_register_existing_email
+false
+87907f0d96b9d19556c75dc55c4a7b2c
+==
+get_json
+post
