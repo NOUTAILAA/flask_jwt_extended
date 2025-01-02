@@ -15,7 +15,7 @@ CORS(app)
 # Activer CSRF
 
 # Configuration de la base de données et JWT
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/ocr_auth_db'  # Remplacez par votre propre URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/ocr_auth_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'votre_secret_key'  # Remplacez par une clé secrète de votre choix
 app.config['UPLOAD_FOLDER'] = 'uploads'
