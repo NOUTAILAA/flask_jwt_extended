@@ -1,7 +1,7 @@
 organization=noutailaa
 projectKey=ocr-auth-service-jwt
 serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.58741
+serverVersion=8.0.0.58800
 dashboardUrl=https://sonarcloud.io/dashboard?id=ocr-auth-service-jwt
-ceTaskId=AZQJ4MgzOqr6qfjIr2SS
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZQJ4MgzOqr6qfjIr2SS
+ceTaskId=AZQm5lmHmht_cxxY89pP
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZQm5lmHmht_cxxY89pP

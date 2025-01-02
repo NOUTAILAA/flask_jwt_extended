@@ -8,6 +8,8 @@ import secrets
 from flask_cors import CORS
 from utils import send_email  # Assurez-vous que cette fonction est définie correctement
 
+import string
+import random
 # Initialisation de Flask et CORS
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +17,7 @@ CORS(app)
 # Activer CSRF
 
 # Configuration de la base de données et JWT
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/ocr_auth_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost/ocr_auth_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'votre_secret_key'  # Remplacez par une clé secrète de votre choix
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -44,7 +46,7 @@ def register():
     data = request.json
     email = data.get('email')
     password = data.get('password')
-    
+
     if not is_valid_email(email):
         return jsonify({"error": "Adresse email invalide!"}), 400
 
@@ -111,6 +113,40 @@ with app.app_context():
     
     if 'user' not in tables:
         db.create_all()
+
+
+
+
+
+
+
+
+def generate_random_password(length=8):
+    """Génère un mot de passe aléatoire."""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(characters) for i in range(length))
+
+@app.route('/forgot_password', methods=['POST'])
+def forgot_password():
+    data = request.json
+    email = data.get('email')
+
+    # Vérifier si l'utilisateur existe
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"error": "Aucun utilisateur trouvé avec cet email!"}), 404
+
+    # Générer un nouveau mot de passe
+    new_password = generate_random_password()
+    user.password_hash = generate_password_hash(new_password)
+    db.session.commit()
+
+    # Envoyer un email avec le nouveau mot de passe
+    subject = "Réinitialisation de votre mot de passe"
+    message = f"Bonjour,\n\nVotre mot de passe a été réinitialisé avec succès. Voici votre nouveau mot de passe :\n\n{new_password}\n\nVeuillez vous connecter et changer ce mot de passe si nécessaire.\n\nCordialement,\nVotre équipe."
+    send_email(email, subject, message)
+
+    return jsonify({"message": "Un email avec le nouveau mot de passe a été envoyé."}), 200
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5001)
