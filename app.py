@@ -77,9 +77,9 @@ def verify_email(token):
         user.is_verified = True
         user.verification_token = None  # Effacer le token après la vérification
         db.session.commit()
-        return jsonify({"message": "Votre compte a été vérifié avec succès!"})
+        return jsonify({"message": "Votre compte a ete verifie avec succes!"})
     
-    return jsonify({"error": "Token invalide ou expiré!"}), 400
+    return jsonify({"error": "Token invalide ou expire!"}), 400
 
 # Route de connexion (Login)
 @app.route('/login', methods=['POST'])
