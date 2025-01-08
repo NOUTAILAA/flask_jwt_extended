@@ -14,7 +14,7 @@ import random
 app = Flask(__name__)
 CORS(app)
 
-# Activer CSRF
+# Activer CSRF  
 
 # Configuration de la base de données et JWT
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost/ocr_auth_db'
