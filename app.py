@@ -17,7 +17,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Configuration de la base de données et JWT
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/ocr_auth_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:123456@localhost/ocr_auth_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'votre_secret_key'  # Remplacez par une clé secrète
 app.secret_key = 'une_cle_secrete'  # Pour la gestion des sessions
@@ -105,7 +105,7 @@ def login():
         # Utiliser un fuseau horaire correct
         local_tz = timezone('Europe/Paris')  # Adapter au fuseau local
         now = datetime.now(local_tz)
-        otp_expiration = now + timedelta(minutes=1)
+        otp_expiration = now + timedelta(minutes=5)
 
         user.otp_code = otp
         user.otp_expiration = otp_expiration
@@ -119,7 +119,7 @@ def login():
             <h2 style="color: #333;">Bonjour,</h2>
             <p>Votre code OTP est :</p>
             <p style="font-size: 24px; color: #007BFF; font-weight: bold; text-align: center;">{otp}</p>
-            <p>Ce code est valable pour une durée de 5 minute.</p>
+            <p>Ce code est valable pour une durée de 5 minutes.</p>
             <p style="margin-top: 20px;">Merci de l'utiliser pour compléter votre connexion.</p>
             <br>
             <p style="font-size: 14px; color: #555;">Cordialement,<br>L'équipe Support</p>
@@ -127,8 +127,10 @@ def login():
         </html>
         """
 
-        # Envoi de l'email stylisé
-        send_email(email, "Votre code OTP", email_content, is_html=True)
+        try:
+            send_email(email, "Votre code OTP", email_content, is_html=True)
+        except Exception as e:
+            return jsonify({"error": f"Erreur lors de l'envoi de l'email : {str(e)}"}), 500
 
         session['email'] = email
         return jsonify({"message": "OTP envoyé à votre email."})
